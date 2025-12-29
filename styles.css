@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    
+
+}
 .container{
     position: absolute;
     left: 50%;
@@ -17,9 +21,10 @@
 
 .container .slide .item{
     width: 200px;
-    height: 200px;
+    height: 330px;
     position: absolute;
     top: 50%;
+    left: 10%;
     transform: translate(0,-50%);
     border-radius: 20px;
     box-shadow: 0 30px 50px #505050;
@@ -27,10 +32,41 @@
     background-size: cover ;
     display: inline-block;
     transition: 0.5s;
+    
+    
 }
 
 .content{
     position: absolute;
     top: 50%;
     left: 50%;
+}
+
+.desc{
+    
+    margin: 10px;
+    position: absolute;
+  
+   color: white;
+    z-index: 2;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.item:hover .desc{
+    visibility: visible;
+    opacity: 1;
+}
+.item:hover::before{
+    background: rgba(0, 0, 0, 0.6);
+    
+}
+.item::before{
+    content: " ";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: 0.3s ease;
+    z-index: 1;
+    border-radius: 20px;
 }
