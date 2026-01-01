@@ -95,3 +95,14 @@ backward.addEventListener('click',()=>{
     Playicon.classList.replace('fa-pause','fa-play');
     isPlaying= false;
 })
+
+audio.addEventListener('loadedmetadata', () => {
+    progress.max = audio.duration;
+    progress.value = 0
+})
+audio.addEventListener('timeupdate', () => {
+    progress.value = audio.currentTime;
+})
+progress.addEventListener('input', () => {
+    audio.currentTime = progress.value;
+})
