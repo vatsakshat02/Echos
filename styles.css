@@ -34,8 +34,8 @@ a{
 .container{
     position: absolute;
     left: 50%;
-    top: 20%;
-    transform: translate(-50%,-20%);
+    top: 40%;
+    transform: translate(-50%,-40%);
     width: 950px;
     height: 600px;
     background-color: #f5f5f5;
@@ -188,3 +188,13 @@ a{
     z-index: 1;
     border-radius: 20px;
 } */
+
+.player{
+    height: 60%;
+    width: 100%;
+    background-color: orange;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    
+}
