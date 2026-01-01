@@ -35,15 +35,25 @@ PlayButton.addEventListener('click', () => {
     }
 })
 
-let progress = document.querySelector('#progress')
-audio.addEventListener('timeupdate',() => {
-    progress.value = (audio.currentTime/audio.duration)*100;
-})
+// let progress = document.querySelector('#progress')
+// audio.addEventListener('timeupdate',() => {
+//     progress.value = (audio.currentTime/audio.duration)*100;
+// })
 
-progress.addEventListener('input', ()=>{
-    audio.currentTime = (progress.value/100)*audio.duration;
-})
+// progress.addEventListener('input', ()=>{
+//     audio.currentTime = (progress.value/100)*audio.duration;
+// })
 
+audio.addEventListener('loadedmetadata', () => {
+    progress.max = audio.duration;
+    progress.value = 0
+})
+audio.addEventListener('timeupdate', () => {
+    progress.value = audio.currentTime;
+})
+progress.addEventListener('input', () => {
+    audio.currentTime = progress.value;
+})
 
 const songs = [
     {
@@ -96,13 +106,3 @@ backward.addEventListener('click',()=>{
     isPlaying= false;
 })
 
-audio.addEventListener('loadedmetadata', () => {
-    progress.max = audio.duration;
-    progress.value = 0
-})
-audio.addEventListener('timeupdate', () => {
-    progress.value = audio.currentTime;
-})
-progress.addEventListener('input', () => {
-    audio.currentTime = progress.value;
-})
